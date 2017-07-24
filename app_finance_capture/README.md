@@ -1,20 +1,20 @@
-The goal is to capture five commodity prices from Yahoo Finance at a configurable regular time interval.
+<p>The goal is to capture five commodity prices from Yahoo Finance at a configurable regular time interval.</p>
 
-Technologies used
+<h2>Technologies used</h2>
 
-Ruby 2.2.3
+<p>Ruby 2.2.3</p>
 
-Rails 5.1.2
+<p>Rails 5.1.2</p>
 
-Redis
+<p>Redis</p>
 
-SSE with Rails Live Stream technology
+<p>SSE with Rails Live Stream technology</p>
 
-minitest
+<p>minitest</p>
 
-Jquery
+<p>Jquery</p>
 
-Twitter bootstrap
+<p>Twitter bootstrap</p>
 
-How it works
+<p>How it works</p>
 
