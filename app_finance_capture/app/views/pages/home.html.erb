@@ -1,0 +1,43 @@
+<h1>Financial Capture</h1>
+
+<h3>Last commodities</h3>
+<table class="table table-striped" id="last-commodities" style="<%= (@commodities.size == 0) ? 'display: none' : '' %>">
+  <thead>
+  <tr>
+    <th>Symbol</th>
+    <th>Name</th>
+    <th>Last Trade</th>
+    <th>Change</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @commodities.each do |commodity| %>
+      <tr id="commodity-<%= commodity['symbol'].gsub('.','-') %>">
+        <td><%= commodity['symbol'] %></td>
+        <td><%= commodity['name'] %></td>
+        <td><%= commodity['last_trade_price'] %></td>
+        <td><%= commodity['change'] %> %</td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<% if @commodities.size == 0 %>
+    <p id="commodities-empty">Commodities empty, please run to capture</p>
+<% end %>
+
+<hr />
+
+<p>Click the button below to start/stop capture commodities</p>
+
+<%= form_tag commodities_capture_path, :method => 'get', :id => 'run', class: 'form-inline' do %>
+    <div class="form-group">
+      <%= text_field_tag :time_in_minutes, params[:time_in_minutes], type: :number, class: 'form-control', placeholder: 'Time interval (minutes)' %>
+    </div>
+    <%= submit_tag "Run now", :class => 'btn btn-primary' %>
+<% end %>
+
+<button id="stop" class="btn btn-danger" style="display: none">Stop</button>
+
+<h3 id="capture-logs-title" style="display: none">Capture logs</h3>
+<div id="capture-logs" style="display: none">
+</div>
